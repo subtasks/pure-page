@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MySite - Professional services for your business needs">
-  <title>MySite - Home</title>
+  <meta name="description" content="SubTask - Professional services for your business needs">
+  <title>SubTask - Home</title>
   <style>
     * {
       margin: 0;
@@ -25,20 +25,30 @@
       top: 0;
       left: 0;
       right: 0;
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background: rgba(26, 26, 26, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       z-index: 1000;
-      padding: 16px 24px;
+      padding: 12px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-size: 24px;
       font-weight: bold;
-      color: #333;
+      color: #c0c0c0;
       text-decoration: none;
+    }
+
+    .nav-logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
     }
 
     .nav-links {
@@ -49,13 +59,13 @@
 
     .nav-links a {
       text-decoration: none;
-      color: #666;
+      color: #a0a0a0;
       font-weight: 500;
       transition: color 0.2s;
     }
 
     .nav-links a:hover {
-      color: #333;
+      color: #fff;
     }
 
     /* Hero Section */
@@ -67,19 +77,45 @@
       align-items: center;
       text-align: center;
       padding: 100px 24px 60px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 25%, #3d3d3d 50%, #4a4a4a 75%, #1a1a1a 100%);
       color: #fff;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at center, rgba(192, 192, 192, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 60px rgba(192, 192, 192, 0.2);
+      border: 3px solid rgba(192, 192, 192, 0.3);
     }
 
     .hero h1 {
       font-size: 48px;
       margin-bottom: 16px;
+      background: linear-gradient(135deg, #e0e0e0 0%, #c0c0c0 50%, #a0a0a0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero p {
       font-size: 20px;
-      opacity: 0.9;
+      opacity: 0.85;
       max-width: 600px;
+      color: #b0b0b0;
     }
 
     /* About Section */
@@ -114,19 +150,25 @@
       flex: 1;
       min-width: 300px;
       height: 300px;
-      background: #f0f0f0;
+      background: linear-gradient(135deg, #2d2d2d 0%, #3d3d3d 50%, #4a4a4a 100%);
       border-radius: 8px;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #999;
-      font-size: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .about-image img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     }
 
     /* Services Section */
     .services {
       padding: 80px 24px;
-      background: #f9f9f9;
+      background: linear-gradient(180deg, #f5f5f5 0%, #e8e8e8 100%);
     }
 
     .services h2 {
@@ -148,21 +190,28 @@
       background: #fff;
       padding: 32px;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
       text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
 
     .service-icon {
       width: 64px;
       height: 64px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 50%, #5a5a5a 100%);
       border-radius: 50%;
       margin: 0 auto 16px;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #fff;
+      color: #c0c0c0;
       font-size: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     .service-card h3 {
@@ -220,13 +269,14 @@
       border-radius: 6px;
       font-size: 16px;
       font-family: inherit;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     .form-group input:focus,
     .form-group textarea:focus {
       outline: none;
-      border-color: #667eea;
+      border-color: #4a4a4a;
+      box-shadow: 0 0 0 3px rgba(74, 74, 74, 0.1);
     }
 
     .form-group textarea {
@@ -235,19 +285,20 @@
     }
 
     .submit-btn {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #fff;
+      background: linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 50%, #5a5a5a 100%);
+      color: #e0e0e0;
       border: none;
       padding: 14px 24px;
       font-size: 16px;
       font-weight: 600;
       border-radius: 6px;
       cursor: pointer;
-      transition: opacity 0.2s;
+      transition: opacity 0.2s, transform 0.2s;
     }
 
     .submit-btn:hover {
       opacity: 0.9;
+      transform: translateY(-1px);
     }
 
     .form-message {
@@ -271,14 +322,15 @@
 
     /* Footer */
     .footer {
-      background: #333;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
       color: #fff;
       text-align: center;
       padding: 32px 24px;
     }
 
     .footer p {
-      opacity: 0.8;
+      opacity: 0.7;
+      color: #a0a0a0;
     }
 
     /* Responsive */
@@ -295,6 +347,11 @@
         font-size: 16px;
       }
 
+      .hero-logo {
+        width: 80px;
+        height: 80px;
+      }
+
       .about {
         flex-direction: column;
       }
@@ -304,7 +361,10 @@
 <body>
   <!-- Navigation -->
   <nav class="nav">
-    <a href="#" class="nav-logo">MySite</a>
+    <a href="#" class="nav-logo">
+      <img src="logo.jpeg" alt="SubTask Logo">
+      SubTask
+    </a>
     <ul class="nav-links">
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -315,7 +375,8 @@
 
   <!-- Hero Section -->
   <section id="hero" class="hero">
-    <h1>Welcome to MySite</h1>
+    <img src="logo.jpeg" alt="SubTask Logo" class="hero-logo">
+    <h1>Welcome to SubTask</h1>
     <p>Building simple, fast, and lightweight web experiences without the complexity.</p>
   </section>
 
@@ -326,7 +387,7 @@
       <p>We are a team of passionate developers and designers dedicated to creating simple, efficient, and user-friendly web solutions. Our focus is on performance, accessibility, and delivering value to our clients without unnecessary complexity.</p>
     </div>
     <div class="about-image">
-      [ Image Placeholder ]
+      <img src="logo.jpeg" alt="SubTask Logo">
     </div>
   </section>
 
@@ -376,7 +437,7 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2025 MySite. All rights reserved.</p>
+    <p>&copy; 2025 SubTask. All rights reserved.</p>
   </footer>
 
   <script type="text/javascript">
